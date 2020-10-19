@@ -3,7 +3,6 @@ const database = require('./db/index');
 // Dependencia necessária para conexão do servidor com o navegador
 const cors = require('cors');
 
-
 const port = 1000;
 const app = express();
 
@@ -16,6 +15,5 @@ app.listen(port, function() {
 
 app.use(cors());
 
-app.use('/index', index);
+app.use('/', index);
 app.use('/contador', contador);
-
