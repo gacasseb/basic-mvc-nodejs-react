@@ -12,6 +12,7 @@ exports.contador_incrementa = function(req, res) {
             return;
         }
         
+        console.log(data.value)
         var newRow = { value: parseInt(data.value) + 1 };
 
         Contador.updateOne( data, newRow, function(err, res) {

@@ -1,7 +1,28 @@
 const express = require('express');
-const database = require('./db/index');
 // Dependencia necessária para conexão do servidor com o navegador
 const cors = require('cors');
+
+// Conexão com o banco de dados
+var mongoose = require('mongoose');
+
+const uri = 'DATABASE_URL';
+const options = {
+    useNewUrlParser:true,
+    useUnifiedTopology: true
+};
+
+var db = mongoose.connect(uri, options, (err) => {
+
+    // Retorna se o banco de dados não foi conectado
+    if ( err ) {
+        console.log('Banco de dados não foi conectado com sucesso');
+        console.log(err);
+
+        return false;
+    }
+
+    console.log('Banco de dados conectado com sucesso.');
+})
 
 const port = 1000;
 const app = express();
@@ -16,4 +37,4 @@ app.listen(port, function() {
 app.use(cors());
 
 app.use('/', index);
-app.use('/contador', contador);
+app.use('/', contador);

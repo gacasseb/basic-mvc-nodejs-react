@@ -1,5 +1,3 @@
-var Model = require('../index.js');
-var mongoose = require('mongoose');
 var mongoose = require('mongoose');
 
 var ContadorSchema = new mongoose.Schema({
@@ -8,6 +6,5 @@ var ContadorSchema = new mongoose.Schema({
 })
 
 var Contador = mongoose.model('contador', ContadorSchema);
-
 
 exports = module.exports = Contador;
